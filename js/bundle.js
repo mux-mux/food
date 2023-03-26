@@ -223,9 +223,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modal */ "./js/modules/modal.js");
 
 
-function forms() {
+function forms(formSelector) {
   // Forms
-  const forms = document.querySelectorAll('form');
+  const forms = document.querySelectorAll(formSelector);
 
   const message = {
     loading: 'icons/spinner.svg',
@@ -299,7 +299,7 @@ function forms() {
     const prevModalDialog = document.querySelector('.modal__dialog');
 
     prevModalDialog.classList.add('sidepanel__hide');
-    (0,_modal__WEBPACK_IMPORTED_MODULE_0__.openModal)();
+    (0,_modal__WEBPACK_IMPORTED_MODULE_0__.openModal)('.modal');
 
     const thankModal = document.createElement('div');
     thankModal.classList.add('modal__dialog');
@@ -316,7 +316,7 @@ function forms() {
       thankModal.remove();
       prevModalDialog.classList.add('sidepanel__show');
       prevModalDialog.classList.remove('sidepanel__hide');
-      (0,_modal__WEBPACK_IMPORTED_MODULE_0__.closeModal)();
+      (0,_modal__WEBPACK_IMPORTED_MODULE_0__.closeModal)('.modal');
     }, 4000);
   }
 
@@ -777,7 +777,7 @@ window.addEventListener('DOMContentLoaded', () => {
   (0,_modules_timer__WEBPACK_IMPORTED_MODULE_2__["default"])();
   (0,_modules_cards__WEBPACK_IMPORTED_MODULE_3__["default"])();
   (0,_modules_calc__WEBPACK_IMPORTED_MODULE_4__["default"])();
-  (0,_modules_forms__WEBPACK_IMPORTED_MODULE_5__["default"])();
+  (0,_modules_forms__WEBPACK_IMPORTED_MODULE_5__["default"])('form');
   (0,_modules_slider__WEBPACK_IMPORTED_MODULE_6__["default"])();
 });
 

@@ -1,8 +1,8 @@
 import { closeModal, openModal } from './modal';
 
-function forms() {
+function forms(formSelector) {
   // Forms
-  const forms = document.querySelectorAll('form');
+  const forms = document.querySelectorAll(formSelector);
 
   const message = {
     loading: 'icons/spinner.svg',
@@ -76,7 +76,7 @@ function forms() {
     const prevModalDialog = document.querySelector('.modal__dialog');
 
     prevModalDialog.classList.add('sidepanel__hide');
-    openModal();
+    openModal('.modal');
 
     const thankModal = document.createElement('div');
     thankModal.classList.add('modal__dialog');
@@ -93,7 +93,7 @@ function forms() {
       thankModal.remove();
       prevModalDialog.classList.add('sidepanel__show');
       prevModalDialog.classList.remove('sidepanel__hide');
-      closeModal();
+      closeModal('.modal');
     }, 4000);
   }
 

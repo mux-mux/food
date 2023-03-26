@@ -12,6 +12,6 @@ window.addEventListener('DOMContentLoaded', () => {
   timer();
   cards();
   calc();
-  forms();
+  forms('form');
   slider();
 });
