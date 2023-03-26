@@ -220,6 +220,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modal */ "./js/modules/modal.js");
+
+
 function forms() {
   // Forms
   const forms = document.querySelectorAll('form');
@@ -296,7 +299,7 @@ function forms() {
     const prevModalDialog = document.querySelector('.modal__dialog');
 
     prevModalDialog.classList.add('sidepanel__hide');
-    openModal();
+    (0,_modal__WEBPACK_IMPORTED_MODULE_0__.openModal)();
 
     const thankModal = document.createElement('div');
     thankModal.classList.add('modal__dialog');
@@ -313,7 +316,7 @@ function forms() {
       thankModal.remove();
       prevModalDialog.classList.add('sidepanel__show');
       prevModalDialog.classList.remove('sidepanel__hide');
-      closeModal();
+      (0,_modal__WEBPACK_IMPORTED_MODULE_0__.closeModal)();
     }, 4000);
   }
 
@@ -336,42 +339,51 @@ function forms() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "closeModal": () => (/* binding */ closeModal),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "openModal": () => (/* binding */ openModal)
 /* harmony export */ });
-function modal() {
+//ES6-Modules move toTop closeModal openModal
+//Modal with params
+//Close and Open with params
+
+function closeModal(modalSelector) {
+  const modal = document.querySelector(modalSelector);
+  modal.classList.add('sidepanel__hide');
+  modal.classList.remove('sidepanel__show');
+  document.body.style.overflow = '';
+}
+function openModal(modalSelector) {
+  const modal = document.querySelector(modalSelector);
+  modal.classList.add('sidepanel__show');
+  modal.classList.remove('sidepanel__hide');
+  document.body.style.overflow = 'hidden';
+}
+
+function modal(triggerSelector, modalSelector) {
   //Modal
-  const modalTrigger = document.querySelectorAll('[data-modal]'),
-    modal = document.querySelector('.modal');
+  const modalTrigger = document.querySelectorAll(triggerSelector),
+    modal = document.querySelector(modalSelector);
 
   modalTrigger.forEach((btn) => {
-    btn.addEventListener('click', openModal);
+    btn.addEventListener('click', () => openModal(modalSelector)); //()=>trick to not call immidiatelly function that have params
   });
-
-  function closeModal() {
-    modal.classList.add('sidepanel__hide');
-    modal.classList.remove('sidepanel__show');
-    document.body.style.overflow = '';
-  }
-  function openModal() {
-    modal.classList.add('sidepanel__show');
-    modal.classList.remove('sidepanel__hide');
-    document.body.style.overflow = 'hidden';
-  }
 
   modal.addEventListener('click', (e) => {
     if (e.target === modal || e.target.getAttribute('data-close') == '') {
-      closeModal();
+      closeModal(modalSelector);
     }
   });
 
   document.addEventListener('keydown', (e) => {
     if (e.code === 'Escape' && modal.classList.contains('show')) {
-      closeModal();
+      closeModal(modalSelector);
     }
   });
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (modal);
+
 
 
 /***/ }),
@@ -761,7 +773,7 @@ __webpack_require__.r(__webpack_exports__);
 
 window.addEventListener('DOMContentLoaded', () => {
   (0,_modules_tabs__WEBPACK_IMPORTED_MODULE_0__["default"])();
-  (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])('[data-modal]', '.modal');
   (0,_modules_timer__WEBPACK_IMPORTED_MODULE_2__["default"])();
   (0,_modules_cards__WEBPACK_IMPORTED_MODULE_3__["default"])();
   (0,_modules_calc__WEBPACK_IMPORTED_MODULE_4__["default"])();
