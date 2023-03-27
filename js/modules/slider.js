@@ -1,4 +1,4 @@
-function slider(
+function slider({
   container,
   slide,
   nextArrow,
@@ -6,8 +6,8 @@ function slider(
   totalCount,
   currentCounter,
   wrapper,
-  field
-) {
+  field,
+}) {
   //CAROUSEL
   //1. query slides, prev, next, total slides counter, current slide number, slidesWrapper-overflow, slidesInner-400%, set width as wrapper width, index = 1, offset = 0
   //2. set styles inner = 100 * 4 '%', disp=flex, transit=0.5s all
@@ -18,7 +18,8 @@ function slider(
   //7. numbers next if(slideIndex==length) 1 else ++ if(slides.length<10) 0slides.length else slides.length
   //8. numbers prev if(slideIndex==1) slides.length else -- if(slides.length<10) 0slides.length else slides.length
 
-  const slides = document.querySelectorAll(container),
+  const slides = document.querySelectorAll(slide),
+    sliderContainer = document.querySelector(container),
     prev = document.querySelector(prevArrow),
     next = document.querySelector(nextArrow),
     total = document.querySelector(totalCount),
@@ -66,7 +67,7 @@ function slider(
     } else {
       current.textContent = slideIndex;
     }
-    dots.forEach((dot) => dot, (style.opacity = '.5'));
+    dots.forEach((dot) => (dot.style.opacity = '.5'));
     dots[slideIndex - 1].style.opacity = 1;
   });
 
@@ -89,7 +90,7 @@ function slider(
     } else {
       current.textContent = slideIndex;
     }
-    dots.forEach((dot) => dot, (style.opacity = '.5'));
+    dots.forEach((dot) => (dot.style.opacity = '.5'));
     dots[slideIndex - 1].style.opacity = 1;
   });
 
@@ -106,9 +107,7 @@ function slider(
   //9. ^ click dot move to slide num dot.each slideIndex = e get attr data-slide-to
   //10. ^ if(slides.length<10) 0slides.length else slides.length
 
-  const slider = document.querySelector('.offer__slider');
-
-  slider.style.position = 'relative';
+  sliderContainer.style.position = 'relative';
 
   const indicators = document.createElement('ol'),
     dots = [];
@@ -126,7 +125,7 @@ function slider(
     margin-left: 15%;
     list-style: none;
   `;
-  slider.append(indicators);
+  sliderContainer.append(indicators);
 
   for (let i = 0; i < slides.length; i++) {
     const dot = document.createElement('li');
@@ -161,7 +160,7 @@ function slider(
       offset = parseInt(width) * (slideTo - 1);
       slidesField.style.transform = `translateX(-${offset}px)`;
 
-      dots.forEach((dot) => dot, (style.opacity = '.5'));
+      dots.forEach((dot) => (dot.style.opacity = '.5'));
       dots[slideIndex - 1].style.opacity = 1;
 
       if (slides.length < 10) {

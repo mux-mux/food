@@ -1,4 +1,4 @@
-import getResource from '../services/services';
+import { getResource } from '../services/services';
 
 function cards() {
   //Class for Cards
