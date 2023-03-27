@@ -1,4 +1,13 @@
-function slider() {
+function slider(
+  container,
+  slide,
+  nextArrow,
+  prevArrow,
+  totalCount,
+  currentCounter,
+  wrapper,
+  field
+) {
   //CAROUSEL
   //1. query slides, prev, next, total slides counter, current slide number, slidesWrapper-overflow, slidesInner-400%, set width as wrapper width, index = 1, offset = 0
   //2. set styles inner = 100 * 4 '%', disp=flex, transit=0.5s all
@@ -9,13 +18,13 @@ function slider() {
   //7. numbers next if(slideIndex==length) 1 else ++ if(slides.length<10) 0slides.length else slides.length
   //8. numbers prev if(slideIndex==1) slides.length else -- if(slides.length<10) 0slides.length else slides.length
 
-  const slides = document.querySelectorAll('.offer__slide'),
-    prev = document.querySelector('.offer__slider-prev'),
-    next = document.querySelector('.offer__slider-next'),
-    total = document.querySelector('#total'),
-    current = document.querySelector('#current'),
-    slidesWrapper = document.querySelector('.offer__slider-wrapper'),
-    slidesField = document.querySelector('.offer__slider-inner'),
+  const slides = document.querySelectorAll(container),
+    prev = document.querySelector(prevArrow),
+    next = document.querySelector(nextArrow),
+    total = document.querySelector(totalCount),
+    current = document.querySelector(currentCounter),
+    slidesWrapper = document.querySelector(wrapper),
+    slidesField = document.querySelector(field),
     width = window.getComputedStyle(slidesWrapper).width;
   let slideIndex = 1,
     offset = 0;

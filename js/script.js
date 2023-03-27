@@ -7,11 +7,20 @@ import forms from './modules/forms';
 import slider from './modules/slider';
 
 window.addEventListener('DOMContentLoaded', () => {
-  tabs();
+  tabs('.tabheader__item', '.tabcontent', '.tabheader__items', 'tabheader__item_active');
   modal('[data-modal]', '.modal');
-  timer();
+  timer('.timer', '2024-03-12');
   cards();
   calc();
   forms('form');
-  slider();
+  slider({
+    container: '.offer__slider',
+    slide: '.offer__slide',
+    nextArrow: '.offer__slider-next',
+    prevArrow: '.offer__slider-prev',
+    total: '#total',
+    currentCounter: '#current',
+    wrapper: '.offer__slider-wrapper',
+    field: '.offer__slider-inner',
+  });
 });
