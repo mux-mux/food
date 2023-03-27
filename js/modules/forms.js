@@ -1,4 +1,7 @@
+//ES6-Modules closeModal openModal
+//postData
 import { closeModal, openModal } from './modal';
+import { postData } from '../services/services';
 
 function forms(formSelector) {
   // Forms
@@ -16,20 +19,6 @@ function forms(formSelector) {
   forms.forEach((item) => {
     bindPostData(item);
   });
-
-  //arrow function when context does not matter
-  const postData = async (url, data) => {
-    //fetch returns object -> fetch(url).then(succCallBackFn, failureCallBackFn);
-    //await waits for result returned
-    const res = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-type': 'application/json' },
-      body: data,
-    });
-    //If no awaits -> go further without waiting result
-    //await bcs could be huge response body and it`ll take time to handel it
-    return await res.json();
-  };
 
   function bindPostData(form) {
     form.addEventListener('submit', (e) => {

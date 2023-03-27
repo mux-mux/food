@@ -133,6 +133,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _services_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/services */ "./js/services/services.js");
+
+
 function cards() {
   //Class for Cards
 
@@ -185,16 +188,9 @@ function cards() {
   // 4.getResource = async(url) => if(!res.ok) throw new Error('') else return await res.json()
   // 5.call getResource('url').then(data=>{data.forEach(({destruct})=>{new ItemCard(redestruct).render()})})
 
-  const getResource = async (url) => {
-    const res = await fetch(url);
-    //fetch only OK when status 200-299
-    if (!res.ok) {
-      throw new Error(`Could not fetch ${url}, status: ${res.status}`);
-    }
-    return await res.json();
-  };
+  /* moved to services.js */
 
-  getResource('http://localhost:3000/menu').then((data) => {
+  (0,_services_services__WEBPACK_IMPORTED_MODULE_0__["default"])('http://localhost:3000/menu').then((data) => {
     //why response Array -> look at db.json -> menu
     //destructuring -> const img = obj.img, altimg = obj.altimg
     data.forEach(({ img, altimg, title, descr, price }) => {
@@ -221,6 +217,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modal */ "./js/modules/modal.js");
+/* harmony import */ var _services_services__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/services */ "./js/services/services.js");
+//ES6-Modules closeModal openModal
+//postData
+
 
 
 function forms(formSelector) {
@@ -239,20 +239,6 @@ function forms(formSelector) {
   forms.forEach((item) => {
     bindPostData(item);
   });
-
-  //arrow function when context does not matter
-  const postData = async (url, data) => {
-    //fetch returns object -> fetch(url).then(succCallBackFn, failureCallBackFn);
-    //await waits for result returned
-    const res = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-type': 'application/json' },
-      body: data,
-    });
-    //If no awaits -> go further without waiting result
-    //await bcs could be huge response body and it`ll take time to handel it
-    return await res.json();
-  };
 
   function bindPostData(form) {
     form.addEventListener('submit', (e) => {
@@ -278,7 +264,7 @@ function forms(formSelector) {
         object[key] = value;
       });
 
-      postData('http://localhost:3000/requests', json)
+      (0,_services_services__WEBPACK_IMPORTED_MODULE_1__.postData)('http://localhost:3000/requests', json)
         .then((data) => {
           console.log(data);
           showThanksModal(message.success);
@@ -689,6 +675,46 @@ function timer() {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (timer);
+
+
+/***/ }),
+
+/***/ "./js/services/services.js":
+/*!*********************************!*\
+  !*** ./js/services/services.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getResource": () => (/* binding */ getResource),
+/* harmony export */   "postData": () => (/* binding */ postData)
+/* harmony export */ });
+//arrow function when context does not matter
+const postData = async (url, data) => {
+  //fetch returns object -> fetch(url).then(succCallBackFn, failureCallBackFn);
+  //await waits for result returned
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-type': 'application/json' },
+    body: data,
+  });
+  //If no awaits -> go further without waiting result
+  //await bcs could be huge response body and it`ll take time to handel it
+  return await res.json();
+};
+
+const getResource = async (url) => {
+  const res = await fetch(url);
+  //fetch only OK when status 200-299
+  if (!res.ok) {
+    throw new Error(`Could not fetch ${url}, status: ${res.status}`);
+  }
+  return await res.json();
+};
+
+
+
 
 
 /***/ })
