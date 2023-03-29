@@ -1,14 +1,8 @@
-function calc() {
-  //CALORIE CALCULATOR
-  //1. Both sex and activity has the same html nasting so use function to handle data from them
-  //2. HTML add sex id male female
-  //3. HTML add activity data-ratio 1.2 1.375 1.55 1.725
-  //4. query result span
-  //5. let sex, height, weight, age, ratio
-  //6. fn calcTotal check empty. If female .text = formula female else man
-  //7. if sex = female result.textContent = formula female (link inside) else male
-  //8. getStaticInfo(parentSelector, activeClass) query parent addEvent if e.target data-ratio ratio = e.target data-ratio else sex = get id all active remove add current
+//sex, ratio - get local or default
+//set active class
+//Make universal and export
 
+function calc() {
   const result = document.querySelector('.calculating__result span');
   let sex = localStorage.getItem('id') || 'female',
     height,

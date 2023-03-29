@@ -8,15 +8,6 @@ function slider(
   wrapper,
   field
 ) {
-  //CAROUSEL
-  //1. query slides, prev, next, total slides counter, current slide number, slidesWrapper-overflow, slidesInner-400%, set width as wrapper width, index = 1, offset = 0
-  //2. set styles inner = 100 * 4 '%', disp=flex, transit=0.5s all
-  //3. set wrapper overflow=hidden
-  //4. set each slide width = wrapper width
-  //5. next addEv if(offset == int(width)*sl.len-1) offset 0 else offset += int(width) transform translateX${offset}
-  //6. prev addEv if(offset == 0) offset int(width)*sl.len-1 else offset -= int(width) transform translateX${offset}
-  //7. numbers next if(slideIndex==length) 1 else ++ if(slides.length<10) 0slides.length else slides.length
-  //8. numbers prev if(slideIndex==1) slides.length else -- if(slides.length<10) 0slides.length else slides.length
 
   const slides = document.querySelectorAll(container),
     prev = document.querySelector(prevArrow),

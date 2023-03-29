@@ -1,5 +1,10 @@
+//return obj with total,D,H,M,S add 0 (H=t/(1000*60*60)%24))
+//Startup init
+//query & (update & set values(1)),
+//setInterval(1), if total<0 clear
+//Make universal and export
+
 function timer(id, deadline) {
-  //Timer
   function getTimeRemaining(endtime) {
     const total = Date.parse(endtime) - Date.parse(new Date()),
       days = Math.floor(total / (1000 * 60 * 60 * 24)),

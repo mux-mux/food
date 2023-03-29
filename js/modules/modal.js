@@ -1,6 +1,7 @@
-//ES6-Modules move toTop closeModal openModal
-//Modal with params
-//Close and Open with params
+//Close Open modal  (overflow-unscrollBelow)
+//Modal forEach use trick with params
+//Close X and Esc
+//Make universal and export
 
 function closeModal(modalSelector) {
   const modal = document.querySelector(modalSelector);
@@ -16,7 +17,6 @@ function openModal(modalSelector) {
 }
 
 function modal(triggerSelector, modalSelector) {
-  //Modal
   const modalTrigger = document.querySelectorAll(triggerSelector),
     modal = document.querySelector(modalSelector);
 
