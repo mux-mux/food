@@ -1,5 +1,11 @@
 //sex, ratio - get local or default
-//set active class
+//if local set active class
+//init local.get
+//calc formula define when result ____
+//try (func(){})(); self invoked init calc
+//func get data-ratio || id set remove active class call calc
+//init get
+//func get inp if \D bd:red e.target switch call calc
 //Make universal and export
 
 function calc() {

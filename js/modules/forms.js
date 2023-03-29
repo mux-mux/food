@@ -1,5 +1,14 @@
-//ES6-Modules closeModal openModal
-//postData
+//logic-submit-spinner-prepareData-response-showMessage
+//messages{loading:spinner, success:, failure:}
+//each form bindPost(request->append message)
+///func bindPost ev submit newDiv.src.spinner.css=db.m0auto.insertAfterForm
+///new formData(form) make json from formData
+///imported postData(url, json).then(data)=>thanksModal.success .catch()=>Modal.failure .finally=>form.reset
+//thanksModal(msg) prev.add.hide
+//newDiv.add.dialog.innerHTML=.conten.close.title{msg}.appendToModal
+//after 4s closeModal
+//Make universal and export
+
 import { closeModal, openModal } from './modal';
 import { postData } from '../services/services';
 
@@ -39,10 +48,10 @@ function forms(formSelector) {
       //.entries [[], []] |  .fromEntries {key:val, key:val}  |  .stringify {'key': val, 'key': val}
       const json = JSON.stringify(Object.fromEntries(formData.entries()));
 
-      const object = {};
-      formData.forEach(function (value, key) {
-        object[key] = value;
-      });
+      // const object = {};
+      // formData.forEach(function (value, key) {
+      //   object[key] = value;
+      // });
 
       postData('http://localhost:3000/requests', json)
         .then((data) => {

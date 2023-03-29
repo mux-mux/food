@@ -1,9 +1,11 @@
+//constructor from db.json convertCurr(), parent(universal) and ...classes
+//render if classes==0 .menu__item else each add div.innerHTML->append
+//imported getResource get url.then(data) data each{destrucr} new Card(destrVars, cont).render()
+//Export
+
 import { getResource } from '../services/services';
 
 function cards() {
-  //Class for Cards
-
-  /* -> #1*/
   class ItemCard {
     constructor(src, alt, title, descr, price, parentSelector, ...classes) {
       this.src = src;
@@ -14,8 +16,6 @@ function cards() {
       this.price = price;
       this.parent = document.querySelector(parentSelector);
       this.course = 27;
-      //this points to current object
-      //call method convertUSDUAH to trigger convertion
       this.convertUSDUAH();
     }
 
@@ -45,20 +45,10 @@ function cards() {
     }
   }
 
-  //AsyncAwait
-  // 1.postData = async(url,data)=> await res.json()
-  // 2.call postData(url, json).then().catch().fianlly()
-  // 3.json = JSON.stringify(Object.fromEntries(formData.entries()))
-  // 4.getResource = async(url) => if(!res.ok) throw new Error('') else return await res.json()
-  // 5.call getResource('url').then(data=>{data.forEach(({destruct})=>{new ItemCard(redestruct).render()})})
-
-  /* moved to services.js */
-
   getResource('http://localhost:3000/menu').then((data) => {
     //why response Array -> look at db.json -> menu
     //destructuring -> const img = obj.img, altimg = obj.altimg
     data.forEach(({ img, altimg, title, descr, price }) => {
-      //new ItemCard points to -> #1
       //why new -> prototype of ItemCard. prototype inherits props & methods of Class ItemCard
       new ItemCard(img, altimg, title, descr, price, '.menu .container').render();
     });

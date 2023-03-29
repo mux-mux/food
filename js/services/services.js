@@ -1,14 +1,16 @@
-//arrow function when context does not matter
+//post async(where, what) res=await fetch(where, {method: headers: body: what}) return await res.json()
+//get async(where) res=await fetch(where) if !res.ok throw new Error return await res.json()
+//async await could be .then(res.json)
+//Export
+
 const postData = async (url, data) => {
-  //fetch returns object -> fetch(url).then(succCallBackFn, failureCallBackFn);
-  //await waits for result returned
+  //fetch(url, [options]-method,headers...-without just get)
   const res = await fetch(url, {
     method: 'POST',
     headers: { 'Content-type': 'application/json' },
     body: data,
   });
   //If no awaits -> go further without waiting result
-  //await bcs could be huge response body and it`ll take time to handel it
   return await res.json();
 };
 
