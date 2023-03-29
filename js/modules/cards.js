@@ -1,3 +1,5 @@
+import { getResource } from '../services/services';
+
 function cards() {
   //Class for Cards
 
@@ -50,14 +52,7 @@ function cards() {
   // 4.getResource = async(url) => if(!res.ok) throw new Error('') else return await res.json()
   // 5.call getResource('url').then(data=>{data.forEach(({destruct})=>{new ItemCard(redestruct).render()})})
 
-  const getResource = async (url) => {
-    const res = await fetch(url);
-    //fetch only OK when status 200-299
-    if (!res.ok) {
-      throw new Error(`Could not fetch ${url}, status: ${res.status}`);
-    }
-    return await res.json();
-  };
+  /* moved to services.js */
 
   getResource('http://localhost:3000/menu').then((data) => {
     //why response Array -> look at db.json -> menu

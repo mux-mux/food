@@ -65,8 +65,8 @@ function calc() {
     });
   }
 
-  getStaticInfo('#gender div', 'calculating__choose-item_active');
-  getStaticInfo('.calculating__choose_big div', 'calculating__choose-item_active');
+  getStaticInfo('#gender', 'calculating__choose-item_active');
+  getStaticInfo('.calculating__choose_big', 'calculating__choose-item_active');
 
   function getDynamicInfo(selector) {
     const input = document.querySelector(selector);

@@ -1,3 +1,6 @@
+var Promise = require('es6-promise-polyfill').Promise;
+import 'nodelist-foreach-polyfill';
+
 import tabs from './modules/tabs';
 import modal from './modules/modal';
 import timer from './modules/timer';
@@ -18,7 +21,7 @@ window.addEventListener('DOMContentLoaded', () => {
     slide: '.offer__slide',
     nextArrow: '.offer__slider-next',
     prevArrow: '.offer__slider-prev',
-    total: '#total',
+    totalCount: '#total',
     currentCounter: '#current',
     wrapper: '.offer__slider-wrapper',
     field: '.offer__slider-inner',
