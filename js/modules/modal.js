@@ -13,7 +13,6 @@ function openModal(modalSelector) {
   const modal = document.querySelector(modalSelector);
   modal.classList.add('sidepanel__show');
   modal.classList.remove('sidepanel__hide');
-  document.body.style.overflow = 'hidden';
 }
 
 function modal(triggerSelector, modalSelector) {

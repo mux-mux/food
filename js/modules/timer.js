@@ -7,10 +7,10 @@
 function timer(id, deadline) {
   function getTimeRemaining(endtime) {
     const total = Date.parse(endtime) - Date.parse(new Date()),
-      days = Math.floor(total / (1000 * 60 * 60 * 24)),
-      hours = Math.floor((total / (1000 * 60 * 60)) % 24),
-      minutes = Math.floor((total / 1000 / 60) % 60),
-      seconds = Math.floor((total / 1000) % 60);
+      days = getZero(Math.floor(total / (1000 * 60 * 60 * 24))),
+      hours = getZero(Math.floor((total / (1000 * 60 * 60)) % 24)),
+      minutes = getZero(Math.floor((total / 1000 / 60) % 60)),
+      seconds = getZero(Math.floor((total / 1000) % 60));
 
     return {
       total: total,
