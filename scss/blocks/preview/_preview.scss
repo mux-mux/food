@@ -2,6 +2,7 @@
   padding: 28px 0 100px 0;
   position: relative;
   &__life {
+    text-align: center;
     font-weight: bold;
     font-size: 20px;
     margin-left: 35px;
@@ -33,15 +34,15 @@
   }
   &__descr {
     position: absolute;
-    top: 300px;
-    right: -177px;
-    width: 550px;
-    height: 359px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
     background: rgba(251, 254, 93, 0.8);
-    padding: 50px;
-    font-size: 24px;
+    padding: 10px;
+    font-size: 16px;
     font-weight: 300;
-    line-height: 36px;
+    line-height: 20px;
     color: rgba(0, 0, 0, 0.7);
   }
 }

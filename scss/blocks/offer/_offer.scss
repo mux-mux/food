@@ -1,10 +1,12 @@
 .offer {
   padding: 70px 0 100px 0;
   position: relative;
+  text-align: center;
   .container {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap: 20px;
   }
   .bgc_y {
     position: absolute;
@@ -26,10 +28,10 @@
   &__action {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
   }
   &__advantages {
-    width: 330px;
+    flex: 1 300px;
     margin-top: 50px;
     h2 {
       font-weight: bold;
