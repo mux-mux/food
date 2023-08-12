@@ -35,7 +35,7 @@ function slider({
   slidesWrapper.style.overflow = 'hidden';
 
   slides.forEach((slide) => {
-    slide.style.width = width;
+    slide.style.maxWidth = width;
   });
 
   next.addEventListener('click', () => {
@@ -106,7 +106,7 @@ function slider({
   indicators.style.cssText = `
     position: absolute;
     right: 0;
-    bottom: 0;
+    bottom: 2%;
     left: 0;
     z-index: 15;
     display: flex;

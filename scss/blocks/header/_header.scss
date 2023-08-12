@@ -8,14 +8,10 @@
   padding: 10px;
   max-width: 1700px;
   margin: 0 auto;
-  &__left-block {
+  &__right-block {
     display: flex;
-    justify-content: space-between;
-    flex: 1 450px;
+    gap: 50px;
   }
-  //   &__right-block {
-  //     margin: 0 auto;
-  //   }
   &__logo {
     max-width: 170px;
     img {

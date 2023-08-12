@@ -54,6 +54,10 @@
         background-color: $primary;
       }
     }
+    &_medium,
+    &_big {
+      flex-wrap: wrap;
+    }
     &_medium {
       justify-content: space-evenly;
     }
@@ -65,17 +69,19 @@
     }
   }
   &__divider {
-    width: 490px;
+    max-width: 490px;
     height: 1px;
     margin: 40px auto;
     background-color: rgba(0, 0, 0, 0.2);
   }
   &__total {
-    width: 490px;
+    max-width: 490px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
   }
   &__result {
     font-size: 18px;
