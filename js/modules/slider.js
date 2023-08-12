@@ -15,10 +15,17 @@ function slider({
     total = document.querySelector(totalCount),
     current = document.querySelector(currentCounter),
     slidesWrapper = document.querySelector(wrapper),
-    slidesField = document.querySelector(field),
-    width = window.getComputedStyle(slidesWrapper).width;
+    slidesField = document.querySelector(field);
+
   let slideIndex = 1,
+    width = slidesWrapper.clientWidth,
     offset = 0;
+
+  window.addEventListener('resize', () => {
+    width = slidesWrapper.clientWidth;
+    offset === 0 ? offset : (offset = parseInt(width));
+    slidesField.style.transform = `translateX(-${offset}px)`;
+  });
 
   if (slides.length < 10) {
     total.textContent = `0${slides.length}`;

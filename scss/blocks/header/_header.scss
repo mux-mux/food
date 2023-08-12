@@ -3,17 +3,25 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 70px;
+  gap: 20px;
   min-height: 150px;
-  padding: 10px;
+  padding: 30px;
   max-width: 1700px;
   margin: 0 auto;
   &__right-block {
     display: flex;
-    gap: 50px;
+    flex: 1 600px;
+    gap: 40px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: 900px) {
+      justify-content: center;
+    }
   }
   &__logo {
     max-width: 170px;
+    margin: 0 auto;
     img {
       width: 100%;
     }

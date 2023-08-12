@@ -53,7 +53,7 @@ function forms(formSelector) {
       //   object[key] = value;
       // });
 
-      postData('http://localhost:3000/requests', json)
+      postData('https://api.jsonbin.io/v3/b/64d76407b89b1e2299cf891e', json)
         .then((data) => {
           console.log(data);
           showThanksModal(message.success);
@@ -94,11 +94,6 @@ function forms(formSelector) {
       closeModal('.modal');
     }, 4000);
   }
-
-  //JSON DB   npx json-server db.json
-  fetch('http://localhost:3000/menu')
-    .then((data) => data.json())
-    .then((res) => console.log(res));
 }
 
 export default forms;

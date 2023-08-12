@@ -6,8 +6,11 @@
 const postData = async (url, data) => {
   //fetch(url, [options]-method,headers...-without just get)
   const res = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-type': 'application/json' },
+    method: 'PUT',
+    headers: {
+      'Content-type': 'application/json',
+      'X-Access-Key': '$2b$10$wh.K0go7oYuH93pP1amFBupx4yjy0VcOnlcWDM.Oh9CT4o1QxvuFq',
+    },
     body: data,
   });
   //If no awaits -> go further without waiting result
@@ -15,11 +18,15 @@ const postData = async (url, data) => {
 };
 
 const getResource = async (url) => {
-  const res = await fetch(url);
-  //fetch only OK when status 200-299
-  if (!res.ok) {
-    throw new Error(`Could not fetch ${url}, status: ${res.status}`);
-  }
+  //fetch(url, [options]-method,headers...-without just get)
+  const res = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'X-Access-Key': '$2b$10$wh.K0go7oYuH93pP1amFBupx4yjy0VcOnlcWDM.Oh9CT4o1QxvuFq',
+      'X-JSON-Path': '$.menu[*]',
+    },
+  });
+  //If no awaits -> go further without waiting result
   return await res.json();
 };
 

@@ -45,10 +45,11 @@ function cards() {
     }
   }
 
-  getResource('http://localhost:3000/menu').then((data) => {
+  getResource('https://api.jsonbin.io/v3/b/64d74da7b89b1e2299cf7fe3').then((data) => {
+    console.log(data.record);
     //why response Array -> look at db.json -> menu
     //destructuring -> const img = obj.img, altimg = obj.altimg
-    data.forEach(({ img, altimg, title, descr, price }) => {
+    data.record.forEach(({ img, altimg, title, descr, price }) => {
       //why new -> prototype of ItemCard. prototype inherits props & methods of Class ItemCard
       new ItemCard(img, altimg, title, descr, price, '.menu .container').render();
     });
