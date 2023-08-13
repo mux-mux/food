@@ -141,8 +141,8 @@ a {
   left: -5%;
   bottom: -1px;
   z-index: -1;
-  height: 8px;
-  background: #54ED39;
+  height: 3px;
+  background: #1d746f;
 }
 .header__link:last-child {
   margin-right: 0;
@@ -507,7 +507,7 @@ a {
 }
 .calculating__choose-item_active {
   color: #fff;
-  background-color: #54ED39;
+  background-color: #1d746f;
 }
 .calculating__choose_medium, .calculating__choose_big {
   -ms-flex-wrap: wrap;

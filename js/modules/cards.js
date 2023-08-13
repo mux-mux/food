@@ -7,7 +7,8 @@ import { getResource } from '../services/services';
 
 function cards() {
   class ItemCard {
-    constructor(src, alt, title, descr, price, parentSelector, ...classes) {
+    constructor(webp, src, alt, title, descr, price, parentSelector, ...classes) {
+      this.webp = webp;
       this.src = src;
       this.alt = alt;
       this.title = title;
@@ -32,7 +33,10 @@ function cards() {
         this.classes.forEach((className) => div.classList.add(className));
       }
       div.innerHTML = `
-        <img src="${this.src}" alt="${this.alt}">
+        <picture>
+          <source srcset=${this.webp} type="image/webp" />
+          <img src="${this.src}" alt="${this.alt}" />
+        </picture>
         <h3 class="menu__item-subtitle">${this.title}</h3>
         <div class="menu__item-descr">${this.descr}</div>
         <div class="menu__item-divider"></div>
@@ -49,9 +53,9 @@ function cards() {
     console.log(data.record);
     //why response Array -> look at db.json -> menu
     //destructuring -> const img = obj.img, altimg = obj.altimg
-    data.record.forEach(({ img, altimg, title, descr, price }) => {
+    data.record.forEach(({ webp, img, altimg, title, descr, price }) => {
       //why new -> prototype of ItemCard. prototype inherits props & methods of Class ItemCard
-      new ItemCard(img, altimg, title, descr, price, '.menu .container').render();
+      new ItemCard(webp, img, altimg, title, descr, price, '.menu .container').render();
     });
   });
 }

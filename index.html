@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Здорове харчування у Києві з доставкою" />
     <link rel="icon" type="image/x-icon" href="./favicon.ico" />
     <link rel="stylesheet" href="css/style.css" />
     <title>Food</title>
@@ -11,7 +12,7 @@
   <body>
     <header class="header">
       <div class="header__logo">
-        <img src="icons/logo.svg" alt="Логотип" />
+        <img src="icons/logo.svg" width="170" height="56" alt="Логотип" />
       </div>
       <div class="header__right-block">
         <nav class="header__links">
@@ -23,10 +24,10 @@
     </header>
     <div class="sidepanel">
       <a href="#" class="sidepanel__icon">
-        <img src="icons/instagram.svg" alt="instagram" />
+        <img src="icons/instagram.svg" width="50" height="50" alt="instagram" />
       </a>
       <a href="#" class="sidepanel__icon">
-        <img src="icons/facebook.svg" alt="facebook" />
+        <img src="icons/facebook.svg" width="50" height="50" alt="facebook" />
       </a>
     </div>
 
@@ -34,7 +35,10 @@
       <div class="container">
         <div class="tabcontainer">
           <div class="tabcontent">
-            <img src="img/tabs/vegy.jpg" alt="vegy" />
+            <picture>
+              <source srcset="img/tabs/webp/vegy.webp" type="image/webp" />
+              <img src="img/tabs/vegy.jpg" alt="vegatables and water" />
+            </picture>
             <div class="tabcontent__descr">
               Меню "Фітнес" - це новий підхід до приготування страв: більше свіжих овочів та
               фруктів. Для людей, які цікавляться спортом; активних та здорових. Це абсолютно новий
@@ -42,7 +46,10 @@
             </div>
           </div>
           <div class="tabcontent">
-            <img src="img/tabs/elite.jpg" alt="elite" />
+            <picture>
+              <source srcset="img/tabs/webp/elite.webp" type="image/webp" />
+              <img src="img/tabs/elite.jpg" alt="vegatables on the floor" />
+            </picture>
             <div class="tabcontent__descr">
               Меню “Преміум” - ми використовуємо не лише гарний дизайн упаковки, але й якісне
               виконання страв. Червона риба, морепродукти, фрукти - ресторанне меню без походу у
@@ -50,7 +57,10 @@
             </div>
           </div>
           <div class="tabcontent">
-            <img src="img/tabs/post.jpg" alt="post" />
+            <picture>
+              <source srcset="img/tabs/webp/post.webp" type="image/webp" />
+              <img src="img/tabs/post.jpg" alt="vegatables on the floor" />
+            </picture>
             <div class="tabcontent__descr">
               Наше спеціальне “Пісне меню” – це ретельний підбір інгредієнтів: повна відсутність
               продуктів тваринного походження. Повна гармонія з собою та природою у кожному
@@ -58,7 +68,10 @@
             </div>
           </div>
           <div class="tabcontent">
-            <img src="img/tabs/vegy.jpg" alt="vegy" />
+            <picture>
+              <source srcset="img/tabs/webp/hamburger.webp" type="image/webp" />
+              <img src="img/tabs/hamburger.jpg" alt="two tasty hamburgers" />
+            </picture>
             <div class="tabcontent__descr">
               Меню "Збалансоване" – це відповідність вашого раціону всім науковим рекомендаціям. Ми
               ретельно прораховуємо вашу потребу в калорiях/бiлках/жирах/вуглеводах та створюємо
@@ -114,13 +127,13 @@
         <div class="offer__slider">
           <div class="offer__slider-counter">
             <div class="offer__slider-prev">
-              <img src="icons/left.svg" alt="prev" />
+              <img src="icons/left.svg" width="38" height="5" alt="prev" />
             </div>
             <span id="current">03</span>
             /
             <span id="total">04</span>
             <div class="offer__slider-next">
-              <img src="icons/right.svg" alt="next" />
+              <img src="icons/right.svg" width="38" height="5" alt="next" />
             </div>
           </div>
           <!--Overflow hiiden-->
@@ -128,16 +141,28 @@
             <!--400% Visible only 100%-->
             <div class="offer__slider-inner">
               <div class="offer__slide">
-                <img src="img/slider/pepper.jpg" alt="pepper" />
+                <picture>
+                  <source srcset="img/slider/webp/pepper.webp" type="image/webp" />
+                  <img src="img/slider/pepper.jpg" alt="red pepper cutting" />
+                </picture>
               </div>
               <div class="offer__slide">
-                <img src="img/slider/food-12.jpg" alt="food" />
+                <picture>
+                  <source srcset="img/slider/webp/food-12.webp" type="image/webp" />
+                  <img src="img/slider/food-12.jpg" alt="fresh vegatbles on table " />
+                </picture>
               </div>
               <div class="offer__slide">
-                <img src="img/slider/olive-oil.jpg" alt="oil" />
+                <picture>
+                  <source srcset="img/slider/webp/olive-oil.webp" type="image/webp" />
+                  <img src="img/slider/olive-oil.jpg" alt="oil bottle on table" />
+                </picture>
               </div>
               <div class="offer__slide">
-                <img src="img/slider/paprika.jpg" alt="paprika" />
+                <picture>
+                  <source srcset="img/slider/webp/paprika.webp" type="image/webp" />
+                  <img src="img/slider/paprika.jpg" alt="papprika and oranges" />
+                </picture>
               </div>
             </div>
           </div>
@@ -283,7 +308,7 @@
           <a href="#" class="link">facebook</a>
         </div>
         <div class="pepper">
-          <img src="icons/veg.svg" alt="pepper" />
+          <img src="icons/veg.svg" width="42" height="42" alt="pepper" />
         </div>
         <div class="call">
           <div class="subtitle">Або зателефонуйте нам</div>
