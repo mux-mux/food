@@ -9,6 +9,10 @@
   justify-content: space-between;
   align-items: center;
 
+  @media screen and (max-width: 576px) {
+    display: none;
+  }
+
   &__text {
     width: 120px;
     height: 120px;

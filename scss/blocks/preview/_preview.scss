@@ -56,14 +56,27 @@
   width: 280px;
   padding: 35px 30px;
   background-color: #fff;
+
+  @media screen and (max-width: 576px) {
+    padding: 35px 5px 35px 0;
+  }
+
   h3 {
     font-weight: bold;
     font-size: 16px;
+
+    @media screen and (max-width: 576px) {
+      text-align: center;
+    }
   }
   &__items {
     margin-top: 35px;
     padding-left: 26px;
     border-left: 1px solid black;
+
+    @media screen and (max-width: 576px) {
+      border-left: none;
+    }
   }
   &__item {
     font-weight: bold;
