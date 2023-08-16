@@ -2,11 +2,20 @@
   padding: 70px 0 100px 0;
   position: relative;
   text-align: center;
+
+  @media screen and (max-width: 576px) {
+    padding: 70px 0 40px 0;
+  }
+
   .container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 50px;
+
+    @media screen and (max-width: 576px) {
+      gap: unset;
+    }
   }
   .bgc_y {
     position: absolute;
@@ -30,10 +39,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media screen and (max-width: 576px) {
+      margin-top: 30px;
+    }
   }
   &__advantages {
     flex: 1 300px;
     margin-top: 50px;
+
+    @media screen and (max-width: 576px) {
+      margin-top: 0;
+    }
+
     h2 {
       font-weight: bold;
       font-size: 20px;

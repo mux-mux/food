@@ -1,6 +1,11 @@
 .preview {
   padding: 28px 0 100px 0;
   position: relative;
+
+  @media screen and (max-width: 576px) {
+    padding: 28px 0 40px 0;
+  }
+
   &__life {
     text-align: center;
     font-weight: bold;

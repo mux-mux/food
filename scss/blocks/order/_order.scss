@@ -1,5 +1,10 @@
 .order {
   padding-bottom: 80px;
+
+  @media screen and (max-width: 576px) {
+    padding-bottom: 40px;
+  }
+
   .title {
     text-align: center;
   }
