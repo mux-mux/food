@@ -7,11 +7,10 @@ module.exports = {
   entry: './js/script.js',
   output: {
     filename: 'bundle.js',
-    path: __dirname + '/js'
+    path: __dirname + '/js',
   },
-  watch: true,
 
-  devtool: "source-map",
+  devtool: 'source-map',
 
   module: {
     rules: [
@@ -21,14 +20,19 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [['@babel/preset-env', {
-                debug: true,
-                corejs: 3,
-                useBuiltIns: "usage"
-            }]]
-          }
-        }
-      }
-    ]
-  }
+            presets: [
+              [
+                '@babel/preset-env',
+                {
+                  debug: true,
+                  corejs: 3,
+                  useBuiltIns: 'usage',
+                },
+              ],
+            ],
+          },
+        },
+      },
+    ],
+  },
 };
