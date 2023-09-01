@@ -30,7 +30,7 @@
 ## Folder structure :open_file_folder:
 
 <div align="center">
-  <img src="https://jsgo.pro/media/structure/food_folder_structure.jpg" alt="Food website Folder structure" width="100%" />
+  <img src="https://jsgo.pro/media/structure/food_project_structure.png" alt="Food website Folder structure" width="100%" />
   <br>
 </div>
 
