@@ -1,37 +1,40 @@
-//sex, ratio - get local or default
-//if local set active class
-//init local.get
-//calc formula define when result ____
-//try (func(){})(); self invoked init calc
-//func get data-ratio || id set remove active class call calc
-//init get
-//func get inp if \D bd:red e.target switch call calc
-//Make universal and export
-
 function calc() {
   const result = document.querySelector('.calculating__result span');
   let sex = localStorage.getItem('id') || 'female',
     height,
     weight,
     age,
-    ratio = localStorage.getItem('ratio') || 1.375;
+    ratio = localStorage.getItem('data-ratio') || '1.375';
 
-  function initLocalSettings(selector, activeClass) {
-    const elements = document.querySelectorAll(selector);
+  function initLocalSettings(selector, attribute, initial, activeClass) {
+    const elements = document.querySelectorAll(`${selector} div`);
 
     elements.forEach((elem) => {
-      elem.classList.remove(activeClass);
-      if (elem.getAttribute('id') === localStorage.getItem('id')) {
-        elem.classList.add(activeClass);
-      }
-      if (elem.getAttribute('data-ratio') === localStorage.getItem('ratio')) {
-        elem.classList.add(activeClass);
-      }
+      setInitActiveClass(elem, attribute, initial, activeClass);
     });
+
+    function setInitActiveClass(elem, attribute, initial, activeClass) {
+      elem.classList.remove(activeClass);
+
+      if (
+        elem.getAttribute(attribute) &&
+        elem.getAttribute(attribute) === localStorage.getItem(attribute)
+      ) {
+        elem.classList.add(activeClass);
+        console.log(0);
+      } else if (elem.getAttribute(attribute) === initial) {
+        elem.classList.add(activeClass);
+      }
+    }
   }
 
-  initLocalSettings('#gender div', 'calculating__choose-item_active');
-  initLocalSettings('.calculating__choose_big div', 'calculating__choose-item_active');
+  initLocalSettings('#gender', 'id', sex, 'calculating__choose-item_active');
+  initLocalSettings(
+    '.calculating__choose_big',
+    'data-ratio',
+    ratio,
+    'calculating__choose-item_active'
+  );
 
   function calcTotal() {
     if (!sex || !height || !weight || !age || !ratio) {
@@ -40,9 +43,13 @@ function calc() {
     }
 
     if (sex === 'female') {
-      result.textContent = Math.round((447.6 + 9.2 * weight + 3.1 * height - 4.3 * age) * ratio);
+      result.textContent = Math.round(
+        (447.6 + 9.2 * weight + 3.1 * height - 4.3 * age) * ratio
+      );
     } else {
-      result.textContent = Math.round((88.36 + 13.4 * weight + 4.8 * height - 5.7 * age) * ratio);
+      result.textContent = Math.round(
+        (88.36 + 13.4 * weight + 4.8 * height - 5.7 * age) * ratio
+      );
     }
   }
 
@@ -55,7 +62,7 @@ function calc() {
       elem.addEventListener('click', (e) => {
         if (e.target.getAttribute('data-ratio')) {
           ratio = +e.target.getAttribute('data-ratio');
-          localStorage.setItem('ratio', ratio);
+          localStorage.setItem('data-ratio', ratio);
         } else {
           sex = e.target.getAttribute('id');
           localStorage.setItem('id', sex);
