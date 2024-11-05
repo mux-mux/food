@@ -1,13 +1,17 @@
-//constructor from db.json convertCurr(), parent(universal) and ...classes
-//render if classes==0 .menu__item else each add div.innerHTML->append
-//imported getResource get url.then(data) data each{destrucr} new Card(destrVars, cont).render()
-//Export
-
 import { getResource } from '../services/services';
 
 function cards() {
   class ItemCard {
-    constructor(webp, src, alt, title, descr, price, parentSelector, ...classes) {
+    constructor(
+      webp,
+      src,
+      alt,
+      title,
+      descr,
+      price,
+      parentSelector,
+      ...classes
+    ) {
       this.webp = webp;
       this.src = src;
       this.alt = alt;
@@ -49,15 +53,21 @@ function cards() {
     }
   }
 
-  getResource('https://api.jsonbin.io/v3/b/64d74da7b89b1e2299cf7fe3').then((data) => {
-    console.log(data.record);
-    //why response Array -> look at db.json -> menu
-    //destructuring -> const img = obj.img, altimg = obj.altimg
-    data.record.forEach(({ webp, img, altimg, title, descr, price }) => {
-      //why new -> prototype of ItemCard. prototype inherits props & methods of Class ItemCard
-      new ItemCard(webp, img, altimg, title, descr, price, '.menu .container').render();
-    });
-  });
+  getResource('https://api.jsonbin.io/v3/b/64d74da7b89b1e2299cf7fe3').then(
+    (data) => {
+      data.record.forEach(({ webp, img, altimg, title, descr, price }) => {
+        new ItemCard(
+          webp,
+          img,
+          altimg,
+          title,
+          descr,
+          price,
+          '.menu .container'
+        ).render();
+      });
+    }
+  );
 }
 
 export default cards;

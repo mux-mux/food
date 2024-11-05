@@ -21,7 +21,6 @@ function calc() {
         elem.getAttribute(attribute) === localStorage.getItem(attribute)
       ) {
         elem.classList.add(activeClass);
-        console.log(0);
       } else if (elem.getAttribute(attribute) === initial) {
         elem.classList.add(activeClass);
       }

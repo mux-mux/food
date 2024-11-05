@@ -91,19 +91,6 @@ function slider({
     dots[slideIndex - 1].style.opacity = 1;
   });
 
-  //NAVS Carousel
-  //1. query whole slider not only wrapper position relative, dots []
-  //2. create indic = ol.carousel-indicators cssText abs,0,0,0,z15,df,jcc,mr15%,ml15%,lsn
-  //3. add nav wrapper slider.append(indic)
-  //4. loop make circles count of total slides craete li setAttr('data-slide-to', i+1)
-  //5. cssText bx-sz cont-box fl 0 1 auto w30 h6 mr3 ml 3 curp bgc#fff bgclip padd-box bt 10 sol trans bb 10 sol trans op .5 transit op .6s ease indic.append(dot) dots.push(dot)
-  //6. add active class if i == 0 op = 1
-  //7. click left right move slide num prev, next dots.each op .5 dots[slideIndex - 1].style.opacity = 1
-  //9. click dot move to slide num dot.each slideIndex = e get attr data-slide-to
-  //8. ^ offset int(width)*slTo-1 transform translateX${offset}
-  //9. ^ click dot move to slide num dot.each slideIndex = e get attr data-slide-to
-  //10. ^ if(slides.length<10) 0slides.length else slides.length
-
   sliderContainer.style.position = 'relative';
 
   const indicators = document.createElement('ol'),

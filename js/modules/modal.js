@@ -1,8 +1,3 @@
-//Close Open modal  (overflow-unscrollBelow)
-//Modal forEach use trick with params
-//Close X and Esc
-//Make universal and export
-
 function closeModal(modalSelector) {
   const modal = document.querySelector(modalSelector);
   modal.classList.add('sidepanel__hide');
@@ -20,7 +15,7 @@ function modal(triggerSelector, modalSelector) {
     modal = document.querySelector(modalSelector);
 
   modalTrigger.forEach((btn) => {
-    btn.addEventListener('click', () => openModal(modalSelector)); //()=>trick to not call immidiatelly function that have params
+    btn.addEventListener('click', () => openModal(modalSelector));
   });
 
   modal.addEventListener('click', (e) => {

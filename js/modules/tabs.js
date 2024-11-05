@@ -1,10 +1,3 @@
-//Each tab unactive hide content
-//Show i tab add active show i content
-//Startup init
-//Test e.target with toggle
-//Add click each if target == tab hide show i
-//Make universal and export
-
 function tabs(tabsSelector, tabsContent, tabsParent, activeClass) {
   const tabs = document.querySelectorAll(tabsSelector),
     tabsContainer = document.querySelector(tabsParent),
