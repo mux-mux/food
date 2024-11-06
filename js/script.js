@@ -10,9 +10,14 @@ import forms from './modules/forms';
 import slider from './modules/slider';
 
 window.addEventListener('DOMContentLoaded', () => {
-  tabs('.tabheader__item', '.tabcontent', '.tabheader__items', 'tabheader__item_active');
+  tabs(
+    '.tabheader__item',
+    '.tabcontent',
+    '.tabheader__items',
+    'tabheader__item_active'
+  );
   modal('[data-modal]', '.modal');
-  timer('.timer', '2024-03-12');
+  timer('.timer', '2025-06-09');
   cards();
   calc();
   forms('form');
