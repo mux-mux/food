@@ -170,6 +170,7 @@ a {
   z-index: -1; }
 
 .tabcontainer {
+  position: relative;
   display: flex;
   max-width: 1130px;
   margin: 0 auto;
@@ -189,50 +190,66 @@ a {
     width: 100%;
     max-height: 50%;
     background: rgba(251, 254, 93, 0.8);
-    padding: 10px;
+    padding: 5px 10px 2px;
     font-size: 16px;
     font-weight: 300;
     line-height: 20px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 6;
-    line-clamp: 6;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
     -webkit-box-orient: vertical;
     color: rgba(0, 0, 0, 0.7); }
 
-.tabheader {
+.tabheader-desktop {
   width: 280px;
   padding: 35px 30px;
   background-color: #fff; }
   @media screen and (max-width: 576px) {
-    .tabheader {
-      padding: 35px 5px 35px 0; } }
-  .tabheader h3 {
-    font-weight: bold;
-    font-size: 16px; }
-    @media screen and (max-width: 576px) {
-      .tabheader h3 {
-        text-align: center; } }
-  .tabheader__items {
-    margin-top: 35px;
-    padding-left: 26px;
-    border-left: 1px solid black; }
-    @media screen and (max-width: 576px) {
-      .tabheader__items {
-        border-left: none; } }
-  .tabheader__item {
-    font-weight: bold;
-    font-size: 18px;
-    font-weight: 300;
-    margin-top: 10px;
-    color: rgba(0, 0, 0, 0.6);
-    cursor: pointer;
-    transition: 0.3s all; }
-    .tabheader__item_active {
-      color: #000;
-      font-size: 22px;
-      font-weight: 700; }
+    .tabheader-desktop {
+      display: none; } }
+
+.tabheader-mobile {
+  display: none; }
+  @media screen and (max-width: 576px) {
+    .tabheader-mobile {
+      display: revert; } }
+
+.tabheader h3 {
+  font-weight: bold;
+  font-size: 16px; }
+  @media screen and (max-width: 576px) {
+    .tabheader h3 {
+      text-align: center; } }
+
+.tabheader__items {
+  margin-top: 35px;
+  padding-left: 26px; }
+  .tabheader__items-mobile {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    list-style: none;
+    background: rgba(235, 235, 235, 0.5);
+    filter: invert(1); }
+
+.tabheader__item, .tabheader__item-mobile {
+  font-weight: bold;
+  font-size: 18px;
+  font-weight: 300;
+  margin-top: 10px;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  transition: 0.3s all; }
+  .tabheader__item-mobile, .tabheader__item-mobile-mobile {
+    padding: 0 20px; }
+  .tabheader__item_active, .tabheader__item-mobile_active, .tabheader__item-mobile_active, .tabheader__item-mobile-mobile_active {
+    color: #000;
+    font-size: 22px;
+    font-weight: 700; }
 
 .offer {
   padding: 70px 0 100px 0;

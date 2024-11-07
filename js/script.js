@@ -16,6 +16,12 @@ window.addEventListener('DOMContentLoaded', () => {
     '.tabheader__items',
     'tabheader__item_active'
   );
+  tabs(
+    '.tabheader__item-mobile',
+    '.tabcontent',
+    '.tabheader__items-mobile',
+    'tabheader__item-mobile_active'
+  );
   modal('[data-modal]', '.modal');
   timer('.timer', '2025-06-09');
   cards();

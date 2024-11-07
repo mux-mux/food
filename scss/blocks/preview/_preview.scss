@@ -24,6 +24,7 @@
   z-index: -1;
 }
 .tabcontainer {
+  position: relative;
   display: flex;
   max-width: 1130px;
   margin: 0 auto;
@@ -44,26 +45,36 @@
     width: 100%;
     max-height: 50%;
     background: rgba(251, 254, 93, 0.8);
-    padding: 10px;
+    padding: 5px 10px 2px;
     font-size: 16px;
     font-weight: 300;
     line-height: 20px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 6;
-    line-clamp: 6;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
     -webkit-box-orient: vertical;
     color: rgba(0, 0, 0, 0.7);
   }
 }
 .tabheader {
-  width: 280px;
-  padding: 35px 30px;
-  background-color: #fff;
+  &-desktop {
+    width: 280px;
+    padding: 35px 30px;
+    background-color: #fff;
 
-  @media screen and (max-width: 576px) {
-    padding: 35px 5px 35px 0;
+    @media screen and (max-width: 576px) {
+      display: none;
+    }
+  }
+
+  &-mobile {
+    display: none;
+
+    @media screen and (max-width: 576px) {
+      display: revert;
+    }
   }
 
   h3 {
@@ -77,13 +88,20 @@
   &__items {
     margin-top: 35px;
     padding-left: 26px;
-    border-left: 1px solid black;
 
-    @media screen and (max-width: 576px) {
-      border-left: none;
+    &-mobile {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      list-style: none;
+      background: rgba(235, 235, 235, 0.5);
+      filter: invert(1);
     }
   }
-  &__item {
+  &__item,
+  &__item-mobile {
     font-weight: bold;
     font-size: 18px;
     font-weight: 300;
@@ -91,7 +109,13 @@
     color: rgba(0, 0, 0, 0.6);
     cursor: pointer;
     transition: 0.3s all;
-    &_active {
+
+    &-mobile {
+      padding: 0 20px;
+    }
+
+    &_active,
+    &-mobile_active {
       color: #000;
       font-size: 22px;
       font-weight: 700;
