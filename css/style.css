@@ -538,7 +538,8 @@ a {
     justify-content: space-between;
     align-items: flex-end; }
   .footer .subtitle {
-    font-size: 20px; }
+    font-size: 20px;
+    color: rgba(249, 254, 126, 0.8); }
   .footer .link {
     display: block;
     margin-top: 15px;
