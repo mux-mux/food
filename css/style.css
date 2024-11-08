@@ -148,7 +148,7 @@ a {
     opacity: 1; } }
 
 .preview {
-  padding: 28px 0 100px 0;
+  padding: 28px 0 70px 0;
   position: relative; }
   @media screen and (max-width: 576px) {
     .preview {
@@ -157,7 +157,6 @@ a {
     text-align: center;
     font-weight: bold;
     font-size: 20px;
-    margin-left: 35px;
     margin-top: 35px; }
 
 .bgc_blue {
@@ -252,7 +251,7 @@ a {
     font-weight: 700; }
 
 .offer {
-  padding: 70px 0 100px 0;
+  padding: 70px 0;
   position: relative;
   text-align: center; }
   @media screen and (max-width: 576px) {
@@ -457,7 +456,7 @@ a {
         font-weight: bold; }
 
 .order {
-  padding-bottom: 80px; }
+  padding-bottom: 70px; }
   @media screen and (max-width: 576px) {
     .order {
       padding-bottom: 40px; } }
