@@ -88,6 +88,7 @@ a {
     margin-right: 45px;
     font-weight: bold;
     font-size: 18px;
+    line-height: 2;
     color: #303030; }
     .header__link:after {
       content: '';
@@ -98,9 +99,13 @@ a {
       bottom: -1px;
       z-index: -1;
       height: 3px;
-      background: #1d746f; }
+      background: #1d746f;
+      transition: 0.3s; }
     .header__link:last-child {
       margin-right: 0; }
+    @media (hover: hover) and (pointer: fine) {
+      .header__link:hover:after {
+        height: 0; } }
 
 .sidepanel {
   position: fixed;

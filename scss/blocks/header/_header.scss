@@ -35,7 +35,9 @@
     margin-right: 45px;
     font-weight: bold;
     font-size: 18px;
+    line-height: 2;
     color: $dark;
+
     &:after {
       content: '';
       position: absolute;
@@ -46,9 +48,16 @@
       z-index: -1;
       height: 3px;
       background: $primary;
+      transition: 0.3s;
     }
     &:last-child {
       margin-right: 0;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover:after {
+        height: 0;
+      }
     }
   }
 }
