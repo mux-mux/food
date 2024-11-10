@@ -66,7 +66,7 @@
     align-items: flex-end;
     &-counter {
       display: flex;
-      width: 180px;
+      max-width: 200px;
       align-items: center;
       font-size: 24px;
       color: rgba(0, 0, 0, 0.5);

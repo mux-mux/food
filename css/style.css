@@ -47,7 +47,7 @@ a {
       padding-right: 5px; } }
 
 .divider {
-  width: 330px;
+  max-width: 330px;
   height: 1px;
   margin: 0 auto;
   background-color: rgba(0, 0, 0, 0.5); }
@@ -309,7 +309,7 @@ a {
     align-items: flex-end; }
     .offer__slider-counter {
       display: flex;
-      width: 180px;
+      max-width: 200px;
       align-items: center;
       font-size: 24px;
       color: rgba(0, 0, 0, 0.5); }
