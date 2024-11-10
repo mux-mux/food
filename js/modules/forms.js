@@ -6,8 +6,8 @@ function forms(formSelector) {
 
   const message = {
     loading: 'icons/spinner.svg',
-    success: 'Thanks! We will call you soon!',
-    failure: 'Error happened. Try once again!',
+    success: 'Дякую! Ми з Вами звяжемся незабаром!',
+    failure: 'Оуу, сталася помилка. Будь-ласка спробуйте ще раз!',
   };
 
   forms.forEach((item) => {
@@ -18,11 +18,12 @@ function forms(formSelector) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      const statusMessage = document.createElement('div');
+      const statusMessage = document.createElement('img');
+      statusMessage.classList.add('loading-spinner');
       statusMessage.src = message.loading;
       statusMessage.style.cssText = `
         display: block;
-        margin: 0 auto;
+        margin: 10px auto;
       `;
       form.insertAdjacentElement('afterend', statusMessage);
 
@@ -32,14 +33,19 @@ function forms(formSelector) {
 
       postData('https://api.jsonbin.io/v3/b/64d76407b89b1e2299cf891e', json)
         .then((data) => {
-          showThanksModal(message.success);
-          message.remove();
+          if (data) {
+            showThanksModal(message.success);
+          } else {
+            showThanksModal(message.failure);
+          }
         })
-        .catch(() => {
+        .catch((error) => {
           showThanksModal(message.failure);
         })
         .finally(() => {
           form.reset();
+          const spinner = document.querySelector('.loading-spinner');
+          spinner.remove();
         });
     });
   }
