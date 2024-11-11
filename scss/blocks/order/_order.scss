@@ -29,5 +29,8 @@
     text-align: center;
     padding: 0 20px;
     outline: none;
+    &:user-invalid {
+      border: 1px solid red;
+    }
   }
 }
