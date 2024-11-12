@@ -5,7 +5,7 @@ function forms(formSelector) {
   const forms = document.querySelectorAll(formSelector);
   const submitButtons = document.querySelectorAll(`${formSelector} button`);
 
-  submitButtons.forEach((button, i) => {
+  submitButtons.forEach((button) => {
     button.addEventListener('click', (e) => {
       checkFormValidity(e.target.parentNode);
     });
@@ -86,6 +86,7 @@ function forms(formSelector) {
           form.reset();
           const spinner = document.querySelector('.loading-spinner');
           spinner.remove();
+          thankModal.remove();
         });
     });
   }
@@ -109,7 +110,6 @@ function forms(formSelector) {
 
     setTimeout(() => {
       thankModal.remove();
-      prevModalDialog.classList.add('sidepanel__show');
       prevModalDialog.classList.remove('sidepanel__hide');
       closeModal('.modal');
     }, 4000);
