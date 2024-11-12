@@ -12,7 +12,7 @@
     margin-top: 70px;
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: baseline;
     flex-wrap: wrap;
     gap: 30px;
     img {
@@ -29,8 +29,12 @@
     text-align: center;
     padding: 0 20px;
     outline: none;
-    &:user-invalid {
-      border: 1px solid red;
+  }
+  &__group {
+    text-align: center;
+
+    small {
+      display: block;
     }
   }
 }

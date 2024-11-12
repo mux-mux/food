@@ -3,12 +3,52 @@ import { postData } from '../services/services';
 
 function forms(formSelector) {
   const forms = document.querySelectorAll(formSelector);
+  const submitButtons = document.querySelectorAll(`${formSelector} button`);
+
+  submitButtons.forEach((button, i) => {
+    button.addEventListener('click', (e) => {
+      checkFormValidity(e.target.parentNode);
+    });
+  });
 
   const message = {
     loading: 'icons/spinner.svg',
     success: 'Дякую! Ми з Вами звяжемся незабаром!',
     failure: 'Оуу, сталася помилка. Будь-ласка спробуйте ще раз!',
+    emptyName: 'Введіть будь-ласка ваше ім`я',
+    emptyPhone: 'Введіть будь-ласка ваш номер телефону',
+    mismatchPhone: 'Введіть будь-ласка ваш номер у форматі 380001234567',
+    overflowName: 'Максимальне дозволене ім`я 100 символів',
   };
+
+  function checkFormValidity(form) {
+    const inputFields = form.querySelectorAll('input');
+    inputFields.forEach((input) => {
+      const validityState = input.validity;
+
+      if (validityState.valueMissing && input.getAttribute('name') === 'name') {
+        input.setCustomValidity(message.emptyName);
+      } else if (
+        validityState.valueMissing &&
+        input.getAttribute('name') === 'phone'
+      ) {
+        input.setCustomValidity(message.emptyPhone);
+      } else if (
+        validityState.patternMismatch &&
+        input.getAttribute('name') === 'phone'
+      ) {
+        input.setCustomValidity(message.mismatchPhone);
+      } else if (
+        validityState.rangeOverflow &&
+        input.getAttribute('name') === 'name'
+      ) {
+        input.setCustomValidity(message.overflowName);
+      } else {
+        input.setCustomValidity('');
+      }
+      input.reportValidity();
+    });
+  }
 
   forms.forEach((item) => {
     bindPostData(item);

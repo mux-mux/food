@@ -471,7 +471,7 @@ a {
     margin-top: 70px;
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: baseline;
     flex-wrap: wrap;
     gap: 30px; }
     .order__form img {
@@ -486,8 +486,10 @@ a {
     text-align: center;
     padding: 0 20px;
     outline: none; }
-    .order__input:user-invalid {
-      border: 1px solid red; }
+  .order__group {
+    text-align: center; }
+    .order__group small {
+      display: block; }
 
 .promotion {
   padding: 70px 0 240px 0;
@@ -572,6 +574,7 @@ a {
     position: relative;
     width: 100%;
     padding: 40px;
+    text-align: center;
     background-color: #fff;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 4px;
@@ -595,13 +598,13 @@ a {
     text-align: center;
     font-size: 22px;
     text-transform: uppercase;
-    padding: 0 20px; }
+    padding: 0 20px 30px; }
     @media screen and (max-width: 576px) {
       .modal__title {
         font-size: 20px; } }
   .modal__input {
     display: block;
-    margin: 20px auto 20px auto;
+    margin: 20px auto 0 auto;
     width: 280px;
     height: 50px;
     background: #ffffff;
@@ -611,9 +614,7 @@ a {
     text-align: center;
     padding: 0 20px;
     outline: none; }
-    .modal__input:user-invalid {
-      border: 1px solid red; }
   .modal .btn {
     display: block;
     width: 280px;
-    margin: 0 auto; }
+    margin: 50px auto 0; }

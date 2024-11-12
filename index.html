@@ -149,9 +149,7 @@
               <img src="icons/right.svg" width="38" height="5" alt="next" />
             </div>
           </div>
-          <!--Overflow hiiden-->
           <div class="offer__slider-wrapper">
-            <!--400% Visible only 100%-->
             <div class="offer__slider-inner">
               <div class="offer__slide">
                 <picture>
@@ -287,15 +285,20 @@
             name="name"
             placeholder="Ваше ім'я"
             class="order__input"
+            maxlength="100"
             required
           />
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Ваш номер телефону"
-            class="order__input"
-            required
-          />
+          <div class="order__group">
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Ваш номер телефону"
+              class="order__input"
+              pattern="38[0-9]{3}[0-9]{7}"
+              required
+            />
+            <small>Формат: 3800001234567</small>
+          </div>
           <button class="btn btn_dark btn_min">Зателефонувати мені</button>
         </form>
       </div>
@@ -369,6 +372,7 @@
               name="name"
               placeholder="Ваше ім'я"
               class="modal__input"
+              maxlength="100"
               required
             />
             <input
@@ -376,8 +380,10 @@
               name="phone"
               placeholder="Ваш номер телефону"
               class="modal__input"
+              pattern="38[0-9]{3}[0-9]{7}"
               required
             />
+            <small>Формат: 380001234567</small>
             <button class="btn btn_dark btn_min">Передзвонити мені</button>
           </form>
         </div>
