@@ -86,7 +86,6 @@ function forms(formSelector) {
           form.reset();
           const spinner = document.querySelector('.loading-spinner');
           spinner.remove();
-          thankModal.remove();
         });
     });
   }
