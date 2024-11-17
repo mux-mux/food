@@ -100,18 +100,30 @@ function forms(formSelector) {
     thankModal.classList.add('modal__dialog');
     thankModal.innerHTML = `
     <div class="modal__content">
-      <div class="modal__close" data-close>x</div>
+      <div class="modal__close" data-close>&times;</div>
       <div class="modal__title">${msg}</div>
     </div>
     `;
 
     document.querySelector('.modal').append(thankModal);
 
-    setTimeout(() => {
+    function hideThankModal(prevModalHideClass, currentModal) {
       thankModal.remove();
-      prevModalDialog.classList.remove('sidepanel__hide');
-      closeModal('.modal');
+      prevModalDialog.classList.remove(prevModalHideClass);
+      closeModal(currentModal);
+    }
+
+    const timeoutId = setTimeout(() => {
+      hideThankModal('sidepanel__hide', '.modal');
     }, 4000);
+
+    const thankModalClose = document.querySelectorAll('[data-close]');
+    thankModalClose.forEach((el) =>
+      el.addEventListener('click', () => {
+        hideThankModal('sidepanel__hide', '.modal');
+        clearTimeout(timeoutId);
+      })
+    );
   }
 }
 
